@@ -28,7 +28,7 @@ const PAGES = [
 const HERO_SLIDES = [
   {
     src: './images/team-goal.jpg',
-    position: 'object-[50%_40%]',
+    position: 'object-[50%_55%]',
     title: 'Locos Colectivos · colectivo sobre todo',
     ctaLabel: 'Folge uns auf Instagram →',
     route: null,
@@ -36,7 +36,7 @@ const HERO_SLIDES = [
   },
   {
     src: './images/locker-room.jpg',
-    position: 'object-[50%_45%]',
+    position: 'object-[50%_52%]',
     title: 'Das Kollektiv in der Kabine · #77 · #22 · #7',
     ctaLabel: 'Zu Kabine & Kader →',
     route: 'kabine',
@@ -44,7 +44,8 @@ const HERO_SLIDES = [
   },
   {
     src: './images/kit-front-close.jpg',
-    position: 'object-[50%_30%]',
+    position: 'object-[50%_28%]',
+    zoomOut: true,
     title: 'Schwarz & Gold · Unsere Match Trikots 2026',
     ctaLabel: 'Zu den Trikots →',
     route: 'trikots',
@@ -269,26 +270,28 @@ const App = () => {
       <main className="flex-1">
         {page === 'home' && (
           <>
-            {/* HERO SLIDER (Volle Bildgröße, kein Kopf-Abschnitt) */}
-            <section id="hero" className="relative bg-[#090b10] select-none">
-              <div className="relative w-full h-[56vh] sm:h-[620px] overflow-hidden">
+            {/* HERO SLIDER (Vollflächig & mittendrin, Leiste sauber darunter) */}
+            <section id="hero" className="relative bg-[#090b10] select-none border-b border-[#d4af37]/30">
+              <div className="relative w-full h-[52vh] sm:h-[560px] overflow-hidden bg-[#090b10]">
+                {currentSlide.zoomOut && (
+                  <img
+                    src={currentSlide.src}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-45 scale-110 pointer-events-none"
+                  />
+                )}
                 <img
                   src={currentSlide.src}
                   alt={currentSlide.title}
-                  className={`w-full h-full object-cover ${currentSlide.position} transition-all duration-500`}
-                />
-                <div
-                  className="absolute inset-x-0 bottom-0 h-[42%] pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(0deg, rgba(9,11,16,0.92) 0%, rgba(9,11,16,0.4) 55%, transparent 100%)'
-                  }}
+                  className={`relative z-10 w-full h-full ${currentSlide.zoomOut ? 'object-contain' : `object-cover ${currentSlide.position}`} transition-all duration-500`}
                 />
 
                 <button
                   type="button"
                   onClick={prevSlide}
                   aria-label="Vorheriges Bild"
-                  className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 border border-[#d4af37]/40 hover:border-[#d4af37] text-white flex items-center justify-center transition-colors"
+                  className="z-20 absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 border border-[#d4af37]/40 hover:border-[#d4af37] text-white flex items-center justify-center transition-colors"
                 >
                   <ChevronLeft size={22} />
                 </button>
@@ -296,43 +299,36 @@ const App = () => {
                   type="button"
                   onClick={nextSlide}
                   aria-label="Nächstes Bild"
-                  className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 border border-[#d4af37]/40 hover:border-[#d4af37] text-white flex items-center justify-center transition-colors"
+                  className="z-20 absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 border border-[#d4af37]/40 hover:border-[#d4af37] text-white flex items-center justify-center transition-colors"
                 >
                   <ChevronRight size={22} />
                 </button>
+              </div>
 
-                {/* Untere Frosted Bar im Hero */}
-                <div
-                  className="absolute inset-x-0 bottom-0 px-6 py-5 sm:px-12 sm:py-7 border-t border-[#d4af37]/30"
-                  style={{
-                    backgroundColor: 'rgba(9, 11, 16, 0.65)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)'
-                  }}
-                >
-                  <div className="max-w-[1380px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <h1 className="font-serif font-bold text-white text-[22px] sm:text-[32px] leading-[1.2]">
-                      {currentSlide.title}
-                    </h1>
-                    {currentSlide.externalHref ? (
-                      <a
-                        href={currentSlide.externalHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="self-start sm:self-auto inline-flex items-center gap-2 border border-[#d4af37] bg-[#d4af37] hover:bg-[#e8c75a] text-[#090b10] rounded-[8px] px-6 py-2 font-sans font-extrabold text-[16px] sm:text-[17px] leading-[1.7] transition-colors"
-                      >
-                        <span>{currentSlide.ctaLabel}</span>
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => navigate(currentSlide.route)}
-                        className="self-start sm:self-auto inline-flex items-center gap-2 border border-[#d4af37] bg-[#d4af37] hover:bg-[#e8c75a] text-[#090b10] rounded-[8px] px-6 py-2 font-sans font-extrabold text-[16px] sm:text-[17px] leading-[1.7] transition-colors"
-                      >
-                        <span>{currentSlide.ctaLabel}</span>
-                      </button>
-                    )}
-                  </div>
+              {/* Untere Leiste unter dem Bild (verdeckt nichts mehr!) */}
+              <div className="px-6 py-5 sm:px-12 sm:py-6 bg-[#0d1017] border-t border-[#d4af37]/30">
+                <div className="max-w-[1380px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <h1 className="font-serif font-bold text-white text-[22px] sm:text-[32px] leading-[1.2]">
+                    {currentSlide.title}
+                  </h1>
+                  {currentSlide.externalHref ? (
+                    <a
+                      href={currentSlide.externalHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="self-start sm:self-auto inline-flex items-center gap-2 border border-[#d4af37] bg-[#d4af37] hover:bg-[#e8c75a] text-[#090b10] rounded-[8px] px-6 py-2 font-sans font-extrabold text-[16px] sm:text-[17px] leading-[1.7] transition-colors"
+                    >
+                      <span>{currentSlide.ctaLabel}</span>
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => navigate(currentSlide.route)}
+                      className="self-start sm:self-auto inline-flex items-center gap-2 border border-[#d4af37] bg-[#d4af37] hover:bg-[#e8c75a] text-[#090b10] rounded-[8px] px-6 py-2 font-sans font-extrabold text-[16px] sm:text-[17px] leading-[1.7] transition-colors"
+                    >
+                      <span>{currentSlide.ctaLabel}</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </section>
@@ -383,17 +379,17 @@ const App = () => {
             {/* STORY / IDENTITÄT (Leicht futuristischer Eck-Schnitt + Ball-Foto) */}
             <section className="py-14 sm:py-20 bg-white dark:bg-[#090b10]">
               <div className="max-w-[1380px] mx-auto px-5 sm:px-12 grid lg:grid-cols-12 gap-10 items-center">
-                <div className="lg:col-span-6">
-                  <div className="cut-corner overflow-hidden border border-[#d4af37]/40 bg-[#090b10] aspect-[16/10]">
+                <div className="lg:col-span-5">
+                  <div className="cut-corner overflow-hidden border border-[#d4af37]/50 bg-[#090b10] aspect-square max-w-[480px] mx-auto">
                     <img
-                      src="./images/club-ball-gold.jpg"
-                      alt="Schwarz-goldener Fußball bei Flutlicht"
+                      src="./images/logo-gold-black.jpg"
+                      alt="Locos Colectivos Vereinswappen"
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
                 </div>
 
-                <div className="lg:col-span-6 space-y-5">
+                <div className="lg:col-span-7 space-y-5">
                   <div className="inline-block border-l-2 border-[#d4af37] pl-3 font-sans font-bold text-[14px] uppercase tracking-[0.14em] text-[#b48f22] dark:text-[#d4af37]">
                     DER VEREIN · NIEDERÖSTERREICH
                   </div>
@@ -701,11 +697,11 @@ const App = () => {
                     onClick={() => setLightbox(card.src)}
                     className="bg-white dark:bg-[#11141c] border border-black/15 dark:border-[#d4af37]/30 rounded-[12px] overflow-hidden cursor-pointer group flex flex-col justify-between"
                   >
-                    <div className="aspect-[3/4] overflow-hidden bg-[#0c0f15] flex items-center justify-center p-2">
+                    <div className="aspect-[3/4] overflow-hidden bg-[#0c0f15]">
                       <img
                         src={card.src}
                         alt={card.title}
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="pt-4 px-4 pb-4">
@@ -777,7 +773,7 @@ const App = () => {
                     onClick={() => setLightbox('./images/team-goal.jpg')}
                     className="cursor-pointer group"
                   >
-                    <div className="aspect-[4/3] rounded-[12px] overflow-hidden mb-4 bg-[#090b10]">
+                    <div className="aspect-[3/4] rounded-[12px] overflow-hidden mb-4 bg-[#090b10]">
                       <img
                         src="./images/team-goal.jpg"
                         alt="Mannschaftsfoto im Tor"
