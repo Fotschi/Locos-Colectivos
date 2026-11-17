@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Darker Grotesque", Arial, sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.25;
+  }
+}
+
+.como-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.como-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 74px;
+  padding: 0 12px;
+  font-family: "Darker Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.como-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: #d4af37;
+  transform: scaleX(0);
+  transition: transform 0.22s ease;
+}
+
+.como-nav-link:hover::after,
+.como-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Leicht futuristischer, einschneidender Eck-Schnitt */
+.cut-corner {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
