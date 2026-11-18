@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://locos-colectivos.at/sitemap.xml
