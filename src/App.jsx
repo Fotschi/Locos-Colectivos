@@ -23,9 +23,23 @@ import BlogSection from './components/BlogSection';
 import SpielplanSection from './components/SpielplanSection';
 import HistorieSection from './components/HistorieSection';
 
+const VALID_ROUTES = ['blog', 'spielplan', 'trikots', 'kabine', 'historie', 'kontakt'];
+
+const PAGE_TITLES = {
+  home: 'Locos Colectivos · Offizielle Website · Fußballverein Niederösterreich',
+  blog: 'Club-Journal & Spielberichte · Locos Colectivos',
+  spielplan: 'Spielplan, Turniere & Ergebnisse · Locos Colectivos',
+  trikots: 'Match Trikots 2026 · Schwarz & Gold · Locos Colectivos',
+  kabine: 'Kabine & Kader 2026 (18 Spieler) · Locos Colectivos',
+  historie: 'Vereinschronik & Spielorte · Locos Colectivos',
+  kontakt: 'Turnier oder Testspiel anfragen · Locos Colectivos'
+};
+
 function parseHash() {
-  const raw = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-  if (['blog', 'spielplan', 'trikots', 'kabine', 'historie', 'kontakt'].includes(raw)) return raw;
+  const hashRaw = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+  if (VALID_ROUTES.includes(hashRaw)) return hashRaw;
+  const pathRaw = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  if (VALID_ROUTES.includes(pathRaw)) return pathRaw;
   return 'home';
 }
 
@@ -68,9 +82,17 @@ const App = () => {
   }, [dark]);
 
   useEffect(() => {
+    document.title = PAGE_TITLES[page] || PAGE_TITLES.home;
+  }, [page]);
+
+  useEffect(() => {
     const onHash = () => setPage(parseHash());
     window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
+    window.addEventListener('popstate', onHash);
+    return () => {
+      window.removeEventListener('hashchange', onHash);
+      window.removeEventListener('popstate', onHash);
+    };
   }, []);
 
   const navigate = (target) => {

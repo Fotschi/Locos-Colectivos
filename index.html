@@ -2,17 +2,19 @@
 <html lang="de" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Locos Colectivos · Fußballverein Niederösterreich · colectivo sobre todo</title>
+    <title>Locos Colectivos · Offizielle Website · Fußballverein Niederösterreich</title>
     <meta
       name="description"
-      content="Offizielle Website von Locos Colectivos – Kleinfeld- und Hobbyfußballteam aus Niederösterreich (Bezirk Korneuburg). Gegründet im April 2026. Spielplan, Kader, Trikots & Club-Journal."
+      content="Locos Colectivos (locos-colectivos.at) – Offizielle Website des Kleinfeld- und Hobbyfußballteams aus Niederösterreich (Bezirk Korneuburg). Gegründet im April 2026. Spielplan, Kader, Match Trikots & Club-Journal."
     />
     <meta
       name="keywords"
-      content="Locos Colectivos, Hobbyfußball Niederösterreich, Kleinfeld Fußball Korneuburg, Kleinfeldturnier NÖ, Fußballverein Korneuburg, Tasmania Tresdorf, Obergänserndorf Turnier, Langenzersdorfer Dorfturnier"
+      content="Locos Colectivos, locos colectivos, locos-colectivos.at, Hobbyfußball Niederösterreich, Kleinfeld Fußball Korneuburg, Kleinfeldturnier NÖ, Tasmania Tresdorf, Obergänserndorf Turnier, Langenzersdorfer Dorfturnier, Sportplatz Würnitz"
     />
-    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Locos Colectivos" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="google-site-verification" content="w5jvsrBdP41XK5GSt1yfoE-hM5uw2Hqe03KsezYX3ac" />
     <link rel="canonical" href="https://locos-colectivos.at/" />
 
@@ -20,37 +22,64 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_AT" />
     <meta property="og:site_name" content="Locos Colectivos" />
-    <meta property="og:title" content="Locos Colectivos · colectivo sobre todo" />
+    <meta property="og:title" content="Locos Colectivos · Offizielle Website · colectivo sobre todo" />
     <meta
       property="og:description"
-      content="Kleinfeld- & Hobbyfußballteam aus Niederösterreich (Bezirk Korneuburg). Spielberichte, Kader, Match Trikots 2026 & Turniere."
+      content="Locos Colectivos – Kleinfeld- & Hobbyfußballteam aus Niederösterreich (Bezirk Korneuburg). Spielberichte, 18-Mann-Kader, Match Trikots 2026 & Turniere."
     />
     <meta property="og:url" content="https://locos-colectivos.at/" />
     <meta property="og:image" content="https://locos-colectivos.at/images/logo-gold-black.jpg" />
 
-    <!-- Structured Data (Google SportsTeam Schema) -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Locos Colectivos · colectivo sobre todo" />
+    <meta
+      name="twitter:description"
+      content="Offizielle Website von Locos Colectivos – Kleinfeld- & Hobbyfußballteam aus Niederösterreich."
+    />
+    <meta name="twitter:image" content="https://locos-colectivos.at/images/logo-gold-black.jpg" />
+
+    <!-- Structured Data (WebSite + SportsTeam Schema for Google Brand Search) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SportsTeam",
-        "name": "Locos Colectivos",
-        "Sport": "Soccer",
-        "slogan": "colectivo sobre todo",
-        "foundingDate": "2026-04",
-        "url": "https://locos-colectivos.at/",
-        "logo": "https://locos-colectivos.at/images/logo-gold-black.jpg",
-        "image": "https://locos-colectivos.at/images/team-goal.jpg",
-        "location": {
-          "@type": "Place",
-          "name": "Bezirk Korneuburg, Niederösterreich, Österreich"
-        },
-        "sameAs": [
-          "https://www.instagram.com/locoscolectivos/"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://locos-colectivos.at/#website",
+            "url": "https://locos-colectivos.at/",
+            "name": "Locos Colectivos",
+            "alternateName": ["LC 2026", "Locos Colectivos NÖ", "locoscolectivos"],
+            "inLanguage": "de-AT"
+          },
+          {
+            "@type": "SportsTeam",
+            "@id": "https://locos-colectivos.at/#team",
+            "name": "Locos Colectivos",
+            "alternateName": "locoscolectivos",
+            "sport": "Soccer",
+            "slogan": "colectivo sobre todo",
+            "foundingDate": "2026-04",
+            "url": "https://locos-colectivos.at/",
+            "logo": "https://locos-colectivos.at/images/logo-gold-black.jpg",
+            "image": [
+              "https://locos-colectivos.at/images/team-goal.jpg",
+              "https://locos-colectivos.at/images/tasmania-tresdorf-match.jpg"
+            ],
+            "location": {
+              "@type": "Place",
+              "name": "Bezirk Korneuburg, Niederösterreich, Österreich"
+            },
+            "sameAs": [
+              "https://www.instagram.com/locoscolectivos/"
+            ]
+          }
         ]
       }
     </script>
 
-    <link rel="icon" type="image/jpeg" href="./images/logo-gold-black.jpg" />
+    <link rel="icon" type="image/jpeg" href="/images/logo-gold-black.jpg" />
+    <link rel="apple-touch-icon" href="/images/logo-gold-black.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,7 +90,14 @@
   <body class="bg-white text-[#090b10] dark:bg-[#090b10] dark:text-[#f5f4f0] antialiased">
     <div id="root"></div>
     <noscript>
-      Locos Colectivos – Kleinfeld- und Hobbyfußballteam aus Niederösterreich (Bezirk Korneuburg). Gegründet im April 2026. Spielplan, Kader, Match Trikots 2026 und Vereinschronik auf locos-colectivos.at.
+      <h1>Locos Colectivos – Fußballverein Niederösterreich (colectivo sobre todo)</h1>
+      <p>
+        Offizielle Website von Locos Colectivos aus dem Bezirk Korneuburg in Niederösterreich (gegründet im April 2026).
+        Kleinfeld- und Hobbyturniere: Langenzersdorfer Dorfturnier (02. Mai 2026), 3. Platz beim Sommerfest der Jugend TSU NeuMed Obergänserndorf (04. Juli 2026, 1:0 gegen Tasmania Tresdorf) und 7:5-Auswärtssieg im Flutlicht-Testspiel am Sportplatz Würnitz gegen Tasmania Tresdorf.
+      </p>
+      <p>
+        Kader 2026: Nico Viehböck (1), Thomas Vilis (23), Michael Lederer (63), Max Frossard (2), Manuel Berthold (3), Lukas Zöhrer (5), Jan Tmej (13), Manuel Meißl (47), Markus Bayr (7), Victor Lenneis (8), Konrad Polevkovits (10), Felix Gassner (19), Laurenz Reiter (22), Markus Tylka (99), Ben Diringer (11), Florian Glaninger (17), Lukas Höfle (67), Jonas Barta (77).
+      </p>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>

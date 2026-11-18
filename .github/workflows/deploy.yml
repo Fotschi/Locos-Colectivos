@@ -28,6 +28,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Generate SEO Subpage Routes
+        run: |
+          cp dist/index.html dist/404.html
+          for route in blog spielplan trikots kabine historie kontakt; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
