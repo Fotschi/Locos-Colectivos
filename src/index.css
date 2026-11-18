@@ -4,17 +4,17 @@
 
 @layer base {
   body {
-    font-family: "Darker Grotesque", Arial, sans-serif;
-    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.6;
   }
 }
 
 .como-title {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: -0.01em;
 }
 
 .como-nav-link {
@@ -22,11 +22,11 @@
   display: inline-flex;
   align-items: center;
   height: 74px;
-  padding: 0 12px;
-  font-family: "Darker Grotesque", sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.08em;
+  padding: 0 10px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color 0.2s ease;
 }
@@ -37,10 +37,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 3px;
+  height: 2px;
   background-color: #d4af37;
   transform: scaleX(0);
-  transition: transform 0.22s ease;
+  transition: transform 0.2s ease;
 }
 
 .como-nav-link:hover::after,
@@ -48,7 +48,17 @@
   transform: scaleX(1);
 }
 
-/* Leicht futuristischer, einschneidender Eck-Schnitt */
-.cut-corner {
-  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
