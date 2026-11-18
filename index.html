@@ -7,7 +7,7 @@
     <title>Locos Colectivos · Offizielle Website · Fußballverein Niederösterreich</title>
     <meta
       name="description"
-      content="Locos Colectivos (locos-colectivos.at) – Offizielle Website des Kleinfeld- und Hobbyfußballteams aus Niederösterreich (Bezirk Korneuburg). Gegründet im April 2026. Spielplan, Kader, Match Trikots & Club-Journal."
+      content="Locos Colectivos ist ein österreichischer Kleinfeld- und Hobbyfußballverein aus dem Bezirk Korneuburg in Niederösterreich (gegründet im April 2026, Vereinsfarben Schwarz & Gold, Motto: colectivo sobre todo). Spielplan, 18-Mann-Kader, Match Trikots & Chronik."
     />
     <meta
       name="keywords"
@@ -18,6 +18,13 @@
     <meta name="google-site-verification" content="w5jvsrBdP41XK5GSt1yfoE-hM5uw2Hqe03KsezYX3ac" />
     <link rel="canonical" href="https://locos-colectivos.at/" />
 
+    <!-- Google Search Favicon (48px multiples + root favicon.ico) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
     <!-- Open Graph / WhatsApp / Instagram Preview -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_AT" />
@@ -25,7 +32,7 @@
     <meta property="og:title" content="Locos Colectivos · Offizielle Website · colectivo sobre todo" />
     <meta
       property="og:description"
-      content="Locos Colectivos – Kleinfeld- & Hobbyfußballteam aus Niederösterreich (Bezirk Korneuburg). Spielberichte, 18-Mann-Kader, Match Trikots 2026 & Turniere."
+      content="Locos Colectivos – Kleinfeld- & Hobbyfußballverein aus Niederösterreich (Bezirk Korneuburg, gegründet April 2026). Spielberichte, Kader, Match Trikots 2026 & Turniere."
     />
     <meta property="og:url" content="https://locos-colectivos.at/" />
     <meta property="og:image" content="https://locos-colectivos.at/images/logo-gold-black.jpg" />
@@ -39,7 +46,7 @@
     />
     <meta name="twitter:image" content="https://locos-colectivos.at/images/logo-gold-black.jpg" />
 
-    <!-- Structured Data (WebSite + SportsTeam Schema for Google Brand Search) -->
+    <!-- Structured Data (WebSite + SportsTeam + FAQPage for Google AI Overview & Knowledge Panel) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -57,12 +64,19 @@
             "@id": "https://locos-colectivos.at/#team",
             "name": "Locos Colectivos",
             "alternateName": "locoscolectivos",
-            "sport": "Soccer",
+            "sport": "Fußball (Kleinfeld & Hobbyturniere)",
             "slogan": "colectivo sobre todo",
             "foundingDate": "2026-04",
+            "description": "Locos Colectivos ist ein österreichischer Kleinfeld- und Hobbyfußballverein aus dem Bezirk Korneuburg in Niederösterreich. Das Team wurde im April 2026 gegründet, spielt in den Vereinsfarben Schwarz und Gold unter dem Leitspruch 'colectivo sobre todo' und tritt bei Hobbyturnieren und Freundschaftsspielen in Niederösterreich an.",
             "url": "https://locos-colectivos.at/",
-            "logo": "https://locos-colectivos.at/images/logo-gold-black.jpg",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://locos-colectivos.at/favicon-192x192.png",
+              "width": 192,
+              "height": 192
+            },
             "image": [
+              "https://locos-colectivos.at/images/logo-gold-black.jpg",
               "https://locos-colectivos.at/images/team-goal.jpg",
               "https://locos-colectivos.at/images/tasmania-tresdorf-match.jpg"
             ],
@@ -72,14 +86,62 @@
             },
             "sameAs": [
               "https://www.instagram.com/locoscolectivos/"
+            ],
+            "athlete": [
+              { "@type": "Person", "name": "Nico Viehböck", "roleName": "Tormann (#1)" },
+              { "@type": "Person", "name": "Thomas Vilis", "roleName": "Tormann (#23)" },
+              { "@type": "Person", "name": "Michael Lederer", "roleName": "Tormann (#63)" },
+              { "@type": "Person", "name": "Max Frossard", "roleName": "Verteidiger (#2)" },
+              { "@type": "Person", "name": "Manuel Berthold", "roleName": "Verteidiger (#3)" },
+              { "@type": "Person", "name": "Lukas Zöhrer", "roleName": "Verteidiger (#5)" },
+              { "@type": "Person", "name": "Jan Tmej", "roleName": "Verteidiger (#13)" },
+              { "@type": "Person", "name": "Manuel Meißl", "roleName": "Verteidiger (#47)" },
+              { "@type": "Person", "name": "Markus Bayr", "roleName": "Mittelfeld (#7)" },
+              { "@type": "Person", "name": "Victor Lenneis", "roleName": "Mittelfeld (#8)" },
+              { "@type": "Person", "name": "Konrad Polevkovits", "roleName": "Mittelfeld (#10)" },
+              { "@type": "Person", "name": "Felix Gassner", "roleName": "Mittelfeld (#19)" },
+              { "@type": "Person", "name": "Laurenz Reiter", "roleName": "Mittelfeld (#22)" },
+              { "@type": "Person", "name": "Markus Tylka", "roleName": "Mittelfeld (#99)" },
+              { "@type": "Person", "name": "Ben Diringer", "roleName": "Sturm (#11)" },
+              { "@type": "Person", "name": "Florian Glaninger", "roleName": "Sturm (#17)" },
+              { "@type": "Person", "name": "Lukas Höfle", "roleName": "Sturm (#67)" },
+              { "@type": "Person", "name": "Jonas Barta", "roleName": "Sturm (#77)" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://locos-colectivos.at/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Was ist Locos Colectivos?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Locos Colectivos ist ein Kleinfeld- und Hobbyfußballverein aus dem Bezirk Korneuburg in Niederösterreich. Der Verein wurde im April 2026 gegründet, trägt die Vereinsfarben Schwarz und Gold und folgt dem Leitspruch 'colectivo sobre todo'."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Welche Erfolge und Spiele hat Locos Colectivos absolviert?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Locos Colectivos nahm am 2. Mai 2026 am Langenzersdorfer Dorfturnier (SV Langenzersdorf) teil, erreichte am 4. Juli 2026 den 3. Platz beim Hobbyturnier & Sommerfest der Jugend TSU NeuMed Obergänserndorf (1:0-Sieg gegen Tasmania Tresdorf) und gewann das Flutlicht-Testspiel am Sportplatz Würnitz gegen Tasmania Tresdorf mit 7:5."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wer spielt im Kader von Locos Colectivos?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Der 18-Mann-Kader von Locos Colectivos besteht aus: Tormänner: Nico Viehböck (#1), Thomas Vilis (#23), Michael Lederer (#63); Verteidiger: Max Frossard (#2), Manuel Berthold (#3), Lukas Zöhrer (#5), Jan Tmej (#13), Manuel Meißl (#47); Mittelfeld: Markus Bayr (#7), Victor Lenneis (#8), Konrad Polevkovits (#10), Felix Gassner (#19), Laurenz Reiter (#22), Markus Tylka (#99); Sturm: Ben Diringer (#11), Florian Glaninger (#17), Lukas Höfle (#67), Jonas Barta (#77)."
+                }
+              }
             ]
           }
         ]
       }
     </script>
 
-    <link rel="icon" type="image/jpeg" href="/images/logo-gold-black.jpg" />
-    <link rel="apple-touch-icon" href="/images/logo-gold-black.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -92,11 +154,11 @@
     <noscript>
       <h1>Locos Colectivos – Fußballverein Niederösterreich (colectivo sobre todo)</h1>
       <p>
-        Offizielle Website von Locos Colectivos aus dem Bezirk Korneuburg in Niederösterreich (gegründet im April 2026).
-        Kleinfeld- und Hobbyturniere: Langenzersdorfer Dorfturnier (02. Mai 2026), 3. Platz beim Sommerfest der Jugend TSU NeuMed Obergänserndorf (04. Juli 2026, 1:0 gegen Tasmania Tresdorf) und 7:5-Auswärtssieg im Flutlicht-Testspiel am Sportplatz Würnitz gegen Tasmania Tresdorf.
+        Locos Colectivos ist ein österreichischer Kleinfeld- und Hobbyfußballverein aus dem Bezirk Korneuburg in Niederösterreich (gegründet im April 2026, Vereinsfarben Schwarz und Gold).
+        Turniere &amp; Ergebnisse: Langenzersdorfer Dorfturnier (02. Mai 2026), 3. Platz beim Sommerfest der Jugend TSU NeuMed Obergänserndorf (04. Juli 2026, 1:0 gegen Tasmania Tresdorf) und 7:5-Auswärtssieg im Flutlicht-Testspiel am Sportplatz Würnitz gegen Tasmania Tresdorf.
       </p>
       <p>
-        Kader 2026: Nico Viehböck (1), Thomas Vilis (23), Michael Lederer (63), Max Frossard (2), Manuel Berthold (3), Lukas Zöhrer (5), Jan Tmej (13), Manuel Meißl (47), Markus Bayr (7), Victor Lenneis (8), Konrad Polevkovits (10), Felix Gassner (19), Laurenz Reiter (22), Markus Tylka (99), Ben Diringer (11), Florian Glaninger (17), Lukas Höfle (67), Jonas Barta (77).
+        Kader 2026 (18 Spieler): Nico Viehböck (#1), Thomas Vilis (#23), Michael Lederer (#63), Max Frossard (#2), Manuel Berthold (#3), Lukas Zöhrer (#5), Jan Tmej (#13), Manuel Meißl (#47), Markus Bayr (#7), Victor Lenneis (#8), Konrad Polevkovits (#10), Felix Gassner (#19), Laurenz Reiter (#22), Markus Tylka (#99), Ben Diringer (#11), Florian Glaninger (#17), Lukas Höfle (#67), Jonas Barta (#77).
       </p>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>
