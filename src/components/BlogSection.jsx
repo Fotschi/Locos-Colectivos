@@ -51,13 +51,19 @@ export const PostCard = ({ post, setLightbox }) => {
           </span>
         </div>
 
-        {/* Media / Carousel */}
-        <div className="relative aspect-[4/3] bg-[#090b10] overflow-hidden group">
+        {/* Media / Carousel (Am Handy natürliches Vollbild ohne Blur-Ränder, am Desktop 4:3) */}
+        <div className="relative sm:aspect-[4/3] bg-[#090b10] overflow-hidden group">
+          <img
+            src={currentImg}
+            alt=""
+            aria-hidden="true"
+            className="hidden sm:block absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110 pointer-events-none"
+          />
           <img
             src={currentImg}
             alt={post.title}
             onClick={() => setLightbox(currentImg)}
-            className="w-full h-full object-cover object-center cursor-pointer group-hover:scale-[1.02] transition-transform duration-500"
+            className="relative z-10 w-full h-auto sm:h-full sm:object-contain cursor-pointer group-hover:scale-[1.01] transition-transform duration-300"
           />
 
           {images.length > 1 && (
@@ -192,7 +198,7 @@ const BlogSection = ({ posts, navigate, setLightbox }) => {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex overflow-x-auto no-scrollbar gap-2 pb-1 mb-6 sm:mb-8">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}

@@ -152,13 +152,13 @@ const SpielplanSection = ({ navigate }) => {
           </span>
         </div>
 
-        {/* 4-Spalten Match-Grid (sauber ohne cut-corner) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* 4-Spalten Match-Grid (kompakt auf Mobil, gleich hoch auf Desktop) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
           {MATCHES.map((match) => (
             <div
               key={match.id}
               onClick={() => setSelectedMatch(match)}
-              className="cursor-pointer rounded-[4px] border border-black/15 dark:border-white/15 border-t-2 border-t-[#d4af37] bg-[#f5f4f0] dark:bg-[#11141c] p-6 min-h-[430px] flex flex-col justify-between hover:border-[#d4af37] transition-colors group"
+              className="cursor-pointer rounded-[2px] border border-black/15 dark:border-white/15 border-t-2 border-t-[#d4af37] bg-[#faf8f4] dark:bg-[#11141c] p-5 sm:p-6 min-h-0 md:min-h-[410px] flex flex-col justify-between hover:border-[#d4af37] transition-colors group"
             >
               <div>
                 <div className="font-sans font-bold text-[14px] uppercase tracking-wider text-[#b48f22] dark:text-[#d4af37]">
@@ -240,31 +240,37 @@ const SpielplanSection = ({ navigate }) => {
             className="rounded-[4px] bg-white dark:bg-[#11141c] border border-[#d4af37]/50 w-full max-w-2xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-52 sm:h-64 bg-[#090b10] overflow-hidden">
+            <div className="relative h-56 sm:h-64 bg-[#090b10] overflow-hidden">
+              <img
+                src={selectedMatch.image}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110 pointer-events-none"
+              />
               <img
                 src={selectedMatch.image}
                 alt={selectedMatch.title}
-                className="w-full h-full object-cover object-center opacity-85"
+                className="relative z-10 w-full h-full object-contain opacity-95"
               />
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 z-10 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(0deg, #090b10 0%, rgba(9,11,16,0.15) 100%)'
+                  background: 'linear-gradient(0deg, #090b10 0%, rgba(9,11,16,0.05) 65%)'
                 }}
               />
               <button
                 type="button"
                 onClick={() => setSelectedMatch(null)}
                 aria-label="Schließen"
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/70 border border-[#d4af37]/50 text-white flex items-center justify-center hover:text-[#d4af37]"
+                className="z-20 absolute top-3.5 right-3.5 w-9 h-9 rounded-[2px] bg-black/75 border border-[#d4af37]/50 text-white flex items-center justify-center hover:text-[#d4af37]"
               >
                 <X size={20} />
               </button>
-              <div className="absolute bottom-4 left-6 right-6">
-                <div className="font-sans font-bold text-[13px] uppercase tracking-[0.12em] text-[#d4af37]">
+              <div className="z-20 absolute bottom-3.5 left-5 right-5">
+                <div className="font-sans font-bold text-[11px] sm:text-[13px] uppercase tracking-[0.12em] text-[#d4af37]">
                   {selectedMatch.badge}
                 </div>
-                <h2 className="como-title text-[26px] sm:text-[32px] text-white leading-tight mt-0.5">
+                <h2 className="como-title text-[21px] sm:text-[30px] text-white leading-tight mt-0.5">
                   {selectedMatch.title}
                 </h2>
               </div>

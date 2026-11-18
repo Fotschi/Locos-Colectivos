@@ -33,11 +33,11 @@ const SquadSection = ({ navigate, setLightbox }) => {
             </h1>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="w-full sm:w-auto flex overflow-x-auto no-scrollbar gap-2 pb-1">
             <button
               type="button"
               onClick={() => setActiveGroup('alle')}
-              className={`cursor-pointer px-4 py-1.5 rounded-[2px] font-sans font-bold text-[12px] uppercase tracking-[0.1em] border transition-colors ${
+              className={`shrink-0 cursor-pointer px-4 py-1.5 rounded-[2px] font-sans font-bold text-[12px] uppercase tracking-[0.1em] border transition-colors ${
                 activeGroup === 'alle'
                   ? 'bg-[#d4af37] text-[#090b10] border-[#d4af37]'
                   : 'bg-transparent text-[#090b10] dark:text-white/80 border-black/15 dark:border-white/15 hover:border-[#d4af37]'
@@ -50,7 +50,7 @@ const SquadSection = ({ navigate, setLightbox }) => {
                 key={group.id}
                 type="button"
                 onClick={() => setActiveGroup(group.id)}
-                className={`cursor-pointer px-4 py-1.5 rounded-[2px] font-sans font-bold text-[12px] uppercase tracking-[0.1em] border transition-colors ${
+                className={`shrink-0 cursor-pointer px-4 py-1.5 rounded-[2px] font-sans font-bold text-[12px] uppercase tracking-[0.1em] border transition-colors ${
                   activeGroup === group.id
                     ? 'bg-[#d4af37] text-[#090b10] border-[#d4af37]'
                     : 'bg-transparent text-[#090b10] dark:text-white/80 border-black/15 dark:border-white/15 hover:border-[#d4af37]'
@@ -116,11 +116,11 @@ const SquadSection = ({ navigate, setLightbox }) => {
               onClick={() => setLightbox('./images/locker-room.jpg')}
               className="cursor-pointer group"
             >
-              <div className="aspect-[4/3] rounded-[12px] overflow-hidden mb-3 bg-[#090b10] border border-black/10 dark:border-[#d4af37]/25">
+              <div className="rounded-[2px] overflow-hidden mb-3 bg-[#090b10] border border-black/15 dark:border-[#d4af37]/30">
                 <img
                   src="./images/locker-room.jpg"
                   alt="Kabine Locos Colectivos"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto sm:aspect-[4/3] sm:object-cover object-center"
                 />
               </div>
               <h3 className="font-serif font-bold text-[22px] leading-[1.25] text-[#090b10] dark:text-white">
@@ -135,11 +135,11 @@ const SquadSection = ({ navigate, setLightbox }) => {
               onClick={() => setLightbox('./images/team-goal.jpg')}
               className="cursor-pointer group"
             >
-              <div className="aspect-[4/3] rounded-[12px] overflow-hidden mb-3 bg-[#090b10] border border-black/10 dark:border-[#d4af37]/25">
+              <div className="rounded-[2px] overflow-hidden mb-3 bg-[#090b10] border border-black/15 dark:border-[#d4af37]/30">
                 <img
                   src="./images/team-goal.jpg"
                   alt="Mannschaftsfoto im Tor"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto sm:aspect-[4/3] sm:object-cover object-center"
                 />
               </div>
               <h3 className="font-serif font-bold text-[22px] leading-[1.25] text-[#090b10] dark:text-white">
